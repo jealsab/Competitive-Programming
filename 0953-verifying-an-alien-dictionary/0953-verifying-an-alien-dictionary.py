@@ -3,7 +3,7 @@ class Solution:
         dict={}
         for i in range (len(order)):
             dict[order[i]]=i
-        print(dict)
+        # print(dict)
         
         for i in range(1,len(words)):
             a = words[i-1]
@@ -23,18 +23,5 @@ class Solution:
         
         
         
-        
-        
-    
-#         for i in range (len(words)-1):
-#             words1=words[i]
-#             words2=words[i+1]
-#             if (len(words1))>(len(words2)):
-#                 return False
-#             for j in range (min(len(words1),len(words2))):
-#                 if words1[j]!=words2[j+1]:
-#                     if dict[words1[j]]>dict[words2[j]]:
-#                         return False
-#                     else:
-#                         return True 
+
         
