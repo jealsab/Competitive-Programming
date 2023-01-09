@@ -3,18 +3,18 @@ class Solution:
         
         
         # [-3,4,3,2], pivot = 2
-        l=[]
-        e=[]
-        g=[]
+        low=[]
+        pivots=[]
+        high=[]
         
         for i in range(len(nums)):
                 if nums[i]<pivot:
-                    l.append(nums[i])
+                    low.append(nums[i])
                 elif nums[i]==pivot:
-                    e.append(nums[i])
+                    pivots.append(nums[i])
                 else:
-                    g.append(nums[i])
+                    high.append(nums[i])
                 
-        l.extend(e)
-        l.extend(g)
-        return(l)
+        low.extend(pivots)
+        low.extend(high)
+        return(low)
