@@ -2,15 +2,14 @@ class Solution:
     def maxOperations(self, nums: List[int], k: int) -> int:
         count = {}
         res = 0
-        for x in nums:
-            if k - x in count and count[k - x] > 0:
-                # print(count[k-x],k,x)
+        for i in nums:
+            if k - i in count and count[k - i] > 0:
                 res += 1
-                count[k - x] -= 1 
+                count[k - i] -= 1 
                 
-            elif x not in count:
-                count[x] = 1
+            elif i not in count:
+                count[i] = 1
             else:
-                count[x] += 1
+                count[i] += 1
         
         return res
