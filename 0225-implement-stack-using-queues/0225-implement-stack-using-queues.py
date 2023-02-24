@@ -7,7 +7,7 @@ class MyStack:
         self.stack.append(x)
 
     def pop(self) -> int:
-        # if self.stack.isEmpty():
+        # if self.isempty():
             # print("you cant pop from empty stack")
         return self.stack.pop()
         
