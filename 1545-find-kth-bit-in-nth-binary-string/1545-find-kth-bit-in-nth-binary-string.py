@@ -2,7 +2,7 @@ class Solution:
     def findKthBit(self, n: int, k: int) -> str:
         
 #   converts '0'  to '1' and '1' to '0' & reverse(S)
-        def revInvert(S):
+        def invertReverse(S):
             s = ""
             for i in S:
                 if i == '0':
@@ -19,7 +19,7 @@ class Solution:
                 return '0'
                 
             S = findKthbit(n-1)
-            return S + '1' + revInvert(S)
+            return S + '1' + invertReverse(S)
         
         return findKthbit(n)[k-1]
     
