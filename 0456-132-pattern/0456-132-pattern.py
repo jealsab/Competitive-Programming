@@ -1,15 +1,15 @@
 class Solution:
     def find132pattern(self, nums: List[int]) -> bool:
-        stack = [] 
-        min_val = nums[0]
+        j = float('-inf')
+        stack = []
+        nums= nums[::-1]
         
         for n in nums:
-            while stack and stack[-1][0] <= n:
-                min_val = min(min_val, stack.pop()[0])
-                
-            if stack and n > stack[-1][1]:
+            if n < j:
                 return True
-                
-            stack.append([n, min_val])
-
+            
+            while stack and stack[-1] < n:
+                j = stack.pop()
+            stack.append(n)
+            
         return False
