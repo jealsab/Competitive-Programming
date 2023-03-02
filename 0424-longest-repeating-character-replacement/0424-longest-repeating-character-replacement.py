@@ -10,11 +10,11 @@ class Solution:
                 freq[s[r]] = 0
                 
             freq[s[r]] += 1
-            count = r - l + 1
+            
             j = max(freq.values())
             
-            if count - j <= k:
-                long_sub = max(long_sub, count)
+            if  r - l + 1 - j <= k:
+                long_sub = max(long_sub,  r - l + 1)
                 
             else:
                 freq[s[l]] -= 1
