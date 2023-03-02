@@ -4,8 +4,8 @@ class Solution:
         c1=Counter(s1)
         i=0
         j= len(s1)-1
-        for i in range(len(s2)):
-            while i <len(s2) and j < len(s2):
+        
+        while i <len(s2) and j < len(s2):
                 # print(Counter(s2[i:j+1]))
                 if c1 == Counter(s2[i:j+1]):
                     return True
