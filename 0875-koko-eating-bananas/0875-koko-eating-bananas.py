@@ -4,7 +4,8 @@ class Solution:
         def eatFinish(mid):
             hours = 0
             for pile in piles:
-                  hours+= ceil(pile/mid) 
+                x = ceil(pile/mid)
+                hours+= x
             return hours   
 
 
