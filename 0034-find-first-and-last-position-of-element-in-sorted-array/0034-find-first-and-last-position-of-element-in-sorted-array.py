@@ -3,7 +3,6 @@ class Solution:
         
         left = 0
         right = len(nums)-1
-        lside= True
         res = []
        
         while left <= right:
