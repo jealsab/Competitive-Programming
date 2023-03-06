@@ -1,8 +1,6 @@
 class Solution:
     def smallestDivisor(self, nums: List[int], threshold: int) -> int:
-        l =[]
-        for i in range(1, threshold):
-            l.append(i)
+       
           
         nums.sort()
         left = 1
