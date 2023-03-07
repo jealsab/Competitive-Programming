@@ -12,13 +12,13 @@ class Solution:
                 return True
             if left is None or right is None:
                 return False
-            if left.val == right.val:
-                Left = helper(left.left,right.right)
 
-                Right = helper(left.right, right.left)
-                
-                return Left and Right
-            else: return False
+            Left = helper(left.left,right.right)
+
+            Right = helper(left.right, right.left)
+
+            return (left.val == right.val) and Left and Right
+        
         if not root:
             return False
         return helper(root.left, root.right)
