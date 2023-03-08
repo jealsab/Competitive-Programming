@@ -12,10 +12,9 @@ class Solution:
         def validBST(root ,l , r):
             if root == None:
                 return True
-            if root.val <= l:
+            if root.val <= l or root.val >= r:
                 return False
-            if root.val >= r:
-                return False
+            
             left = validBST(root.left, l, root.val)
             right = validBST(root.right, root.val, r)
             
