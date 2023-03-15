@@ -21,15 +21,3 @@ class Solution:
 
 
 
-
-
-#     if n == 1:
-#             return 0
-#         if n > 1:
-#             s=self.kthGrammar(n-1,k)
-#             if s ==0:
-#                 return int('01')
-#             elif s==1:
-#                 return 10
-#         return s[k]
-        
