@@ -6,30 +6,33 @@
 #         self.right = right
 class Solution:
     def pathSum(self, root: Optional[TreeNode], targetSum: int) -> int:
+        self.res = 0
+
         if root is None:
             return 0
-        def countPath(root , curr, targetSum):
+        def countPath(root , curr):
             if root is None:
                 return 0
-            res = 0
+            
             curr += root.val
             
             if curr-targetSum in dic:
-                res += dic[curr-targetSum]
+                self.res += dic[curr-targetSum]
                 
             if curr in dic:
                 dic[curr]+=1
                 
             else:
                 dic[curr] = 1
-            res+=countPath(root.left,curr,targetSum)
-            res+=countPath(root.right,curr,targetSum)
+                
+            countPath(root.left,curr)
+            countPath(root.right,curr)
             
             dic[curr]-= 1
             
-            return res
+            return self.res
             
         dic = defaultdict(int)
-        dic[0]=1
-        return countPath(root,0,targetSum)
+        dic[0] = 1
+        return countPath(root,0)
     
