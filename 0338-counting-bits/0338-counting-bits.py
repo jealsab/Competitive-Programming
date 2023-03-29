@@ -3,11 +3,10 @@ class Solution:
         lst = []
         for i in range(n+1):
             count = 0
-            s = bin(i)
-            for i in range(2, len(s)):
-                if s[i] == '1':
-                    count += 1     
-            lst.append(count)
+            s = list(bin(i))
+            s = s[2:]
+            arr = list(map(int, s))
+            lst.append(sum(arr))
         return lst
     
          
