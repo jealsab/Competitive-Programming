@@ -1,14 +1,7 @@
 class Solution:
     def findComplement(self, num: int) -> int:
-        # s = ~num
-        lst= []
-        s = bin(num)
-        for i in range(2, len(s)):
-            if s[i] == '1':
-                lst.append('0')
-            else:
-                lst.append('1')
-        a = "".join(lst)
-        q = '0b'+ a
-        return int(q,2)
+        bit_mask_amount = 2**(num.bit_length()) - 1 
+        
+        return (num ^ bit_mask_amount)
+
     
