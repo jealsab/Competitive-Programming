@@ -5,30 +5,22 @@ class Solution(object):
         :type edges: List[List[int]]
         :rtype: List[List[int]]
         """
-
-        graph = defaultdict(list)
-        indegree = [0]*n
-        res = [set() for _ in range(n)]
-
-        for i in edges:
-            graph[i[0]].append(i[1])
-            indegree[i[1]] += 1
-        queue = deque()
+        graph= defaultdict(list)
+        indegree = [0 for _ in range(n)]
+        for i in range(len(edges)):
+            indegree[edges[i][1]]+=1
+            graph[edges[i][0]].append(edges[i][1])
+        q = deque()
         for i in range(len(indegree)):
-			if not indegree[i]:
-				queue.append(i)
-        while queue:
-			node = queue.popleft()
-			
-			for child in graph[node]:
-				indegree[child] -= 1
-				res[child].add(node)
-				
-				for j in res[node]:
-					res[child].add(j)
-				if not indegree[child]:
-					queue.append(child)
-					
-        for i in range(len(res)):
-			res[i] = sorted(res[i])
-        return res
+            if indegree[i]==0:
+                q.append(i)
+        res = [set() for _ in range (n)]
+        while q:
+            n= q.popleft()
+            for child in graph[n]:
+                indegree[child]-=1
+                res[child].add(n)
+                res[child].update(res[n])
+                if indegree[child] == 0:
+                    q.append(child)
+        return [sorted(i) for i in res]
