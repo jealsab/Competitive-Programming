@@ -13,7 +13,6 @@ class Solution(object):
             queue =  deque([[(r,c),1]])
             directions= [(0, 1), (0, -1), (1, 0), (-1, 0), (1 , 1),(-1 , -1),(-1 , 1),(1 , -1)]
             while queue:
-                # print(queue)
                 ((row, col), d) = queue.popleft()
                 if row == len(grid)-1 and col == len(grid[0])-1:
                     return d
