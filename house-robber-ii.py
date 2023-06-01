@@ -4,18 +4,23 @@ class Solution(object):
         :type nums: List[int]
         :rtype: int
         """
-        # return 1
-        '''
-        Since House[1] and House[n] are adjacent, they cannot be robbed together. Therefore, the problem becomes to rob either House[1]-House[n-1] or House[2]-House[n], depending on which choice offers more money. Now the problem has degenerated to the House Robber, which is already been solved.
-        '''
-        if len(nums) < 4:
+        if len(nums)<=3:
             return max(nums)
-        def rob(nums):
-            dp = [float("-inf") for i in range(len(nums))]
-            dp[0] = nums[0]
-            dp[1]= max(nums[0], nums[1])
-            for i in range(2,len(dp)):
-                dp[i]=max(nums[i]+dp[i-2], dp[i-1])
-            return dp[-1]
-            
-        return max(rob(nums[1:]), rob(nums[:-1]))
+
+        dp1 = [0 for _ in range (len(nums)-1)]
+
+        dp1[0] = nums[0]
+        dp1[1] = nums[1]
+        dp1[2] = nums[2]+nums[0]
+        
+        for i in range(3, len(dp1)):
+            dp1[i] = nums[i]+ max(dp1[0:i-1])  
+        dp2 = [0 for _ in range (len(nums)-1)]
+
+        dp2[0] = nums[1]
+        dp2[1] = nums[2]
+        dp2[2] = nums[1]+nums[3]
+        
+        for i in range(3, len(dp2)):
+            dp2[i] = nums[i+1]+ max(dp2[0:i-1])  
+        return max(max(dp1),max(dp2))
